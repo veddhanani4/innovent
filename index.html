@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOVENT 2026 | Launching Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;800&family=Space+Grotesk:wght@500;700&display=swap');
+        
+        body { 
+            background-color: #0a0a0c; 
+            color: #e2e8f0; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+
+        .dot-bg {
+            background-image: radial-gradient(#ffffff0a 1px, transparent 1px);
+            background-size: 30px 30px;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 32px;
+            text-align: center;
+            max-width: 650px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #ffffff, #9ca3af, #4b5563);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timer-unit {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo-container {
+            width: 180px;
+            margin: 0 auto 2rem;
+            filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.2));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="dot-bg">
+
+    <div class="glass-card">
+        <!-- Logo Integration -->
+        <div class="logo-container">
+            <img src="C:\Users\LENOVO\Desktop\Inno\final - copy.png" alt="INNOVENT Logo" class="w-full h-auto rounded-xl">
+        </div>
+
+        <header class="mb-8">
+            <div class="text-4xl font-black tracking-tighter uppercase mb-4">
+                COMING <span class="text"> SOON</span>
+            </div>
+            <p class="text-gray-500 text-sm leading-relaxed px-4">
+                We are working on our website. Stay tuned for some exciting updates.
+            </p>
+        </header>
+
+        <!-- Countdown Timer -->
+        <div class="grid grid-cols-4 gap-2 mb-10">
+            <div><div id="days" class="timer-unit">00</div><p class="text-[8px] uppercase tracking-widest text-gray-600">Days</p></div>
+            <div><div id="hours" class="timer-unit">00</div><p class="text-[8px] uppercase tracking-widest text-gray-600">Hrs</p></div>
+            <div><div id="mins" class="timer-unit">00</div><p class="text-[8px] uppercase tracking-widest text-gray-600">Mins</p></div>
+            <div><div id="secs" class="timer-unit">00</div><p class="text-[8px] uppercase tracking-widest text-gray-600">Secs</p></div>
+        </div>
+
+        <div class="space-y-4">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=innovent.dggec@gmail.com&su=INNOVENT_2026_UPLINK&body=Requesting_access_details.%0D%0A%0D%0AName:%0D%0AOrganization:" 
+               target="_blank" 
+               class="block w-full py-4 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all">
+                Contact Administration
+            </a>
+            <p class="text-[8px] text-gray-800 uppercase tracking-widest mt-6 italic">System Status: Maintenance_Mode_Active</p>
+        </div>
+    </div>
+
+    <script>
+        const launchDate = new Date("June 10, 2026 00:00:00").getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = d.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = h.toString().padStart(2, '0');
+            document.getElementById("mins").innerHTML = m.toString().padStart(2, '0');
+            document.getElementById("secs").innerHTML = s.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector(".glass-card").innerHTML = "<h1 class='text-2xl font-bold'>LAUNCH_INITIALIZED</h1>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
